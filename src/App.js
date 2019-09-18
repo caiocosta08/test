@@ -1,26 +1,34 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Teste from './components/Teste.js';
+import Listas from './components/Listas.js';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+  return(
+    <Router>
+      <div>
+        <ul>
+          <li>
+            <Link to="/listas">Listas</Link>
+          </li>
+          <li>
+            <Link to="/teste">Teste</Link>
+          </li>
+        </ul>
+
+        <hr />
+
+        <Route exact path="/listas" component={Listas} />
+        <Route path="/teste" component={Teste} />
+      </div>
+    </Router>
   );
+
 }
 
 export default App;
