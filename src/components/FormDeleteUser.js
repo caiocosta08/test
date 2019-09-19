@@ -1,6 +1,6 @@
 import React from 'react';
 
-class FormEditUser extends React.Component {
+class FormDeleteUser extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -15,7 +15,7 @@ class FormEditUser extends React.Component {
     this.openModal = this.openModal.bind(this);
     this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
-    this.editUser = this.editUser.bind(this);
+    this.deleteUser = this.deleteUser.bind(this);
     this.redirectSuccess = this.redirectSuccess.bind(this);
     this.cleanState = this.cleanState.bind(this);
     this.getStateValues = this.getStateValues.bind(this);
@@ -38,7 +38,7 @@ class FormEditUser extends React.Component {
   }
 
   redirectSuccess(){
-    alert('The update was succesfully completed!');
+    alert('The delete was succesfully completed!');
     this.refreshPage();
   }
 
@@ -59,8 +59,8 @@ class FormEditUser extends React.Component {
     return this.state;
   }
 
-  editUser(newUserData){
-    let url = 'http://localhost:8000/update';
+  deleteUser(newUserData){
+    let url = 'http://localhost:8000/delete';
 
     fetch(url, {
       method: 'POST',
@@ -143,21 +143,20 @@ class FormEditUser extends React.Component {
                 ))
               }
             </select>
-          <h1>Edit user {this.state.id}</h1>
-          <input value={this.state.name} type='text' placeholder='Name' onChange={(event) => {this.setState({name: event.target.value})}} />
-          <br /><br />
-          <input value={this.state.email} type='text' placeholder='Email' onChange={(event) => {this.setState({email: event.target.value})}} />
-          <br /><br />
-          <input value={this.state.password} type='password' placeholder='Password' onChange={(event) => {this.setState({password: event.target.value})}} />
-          <br /><br />
+          <h1>Delete user {this.state.id}</h1>
+          <h5>ID: {this.state.id}</h5>
+          <h5>Name: {this.state.name}</h5>
+          <h5>E-mail: {this.state.email}</h5>
+
+            
           
           <button onClick={() => {
-            this.editUser(this.getStateValues())
+            this.deleteUser(this.getStateValues())
           }
-          }>Save</button>
+          }>Delete</button>
         </div>
       );
   }
 }
 
-export default FormEditUser;
+export default FormDeleteUser;

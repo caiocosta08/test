@@ -1,5 +1,4 @@
 import React from 'react';
-import './FormAddUser.css';
 
 class FormAddUser extends React.Component {
   constructor(props) {

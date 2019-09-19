@@ -2,6 +2,7 @@ import React from 'react';
 import UserList from './components/UserList.js';
 import FormAddUser from './components/FormAddUser';
 import FormEditUser from './components/FormEditUser';
+import FormDeleteUser from './components/FormDeleteUser';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
@@ -22,6 +23,9 @@ function Main() {
           <li>
             <Link to="/formedituser">Edit User</Link>
           </li>
+          <li>
+            <Link to="/formdeleteuser">Delete User</Link>
+          </li>
         </ul>
 
         <hr />
@@ -29,6 +33,7 @@ function Main() {
         <Route path="/userlist" component={UserList} />
         <Route path="/formadduser" component={FormAddUser} />
         <Route path="/formedituser" component={FormEditUser} />
+        <Route path="/formdeleteuser" component={FormDeleteUser} />
       </div>
     </Router>
   );
